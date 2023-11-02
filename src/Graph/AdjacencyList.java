@@ -1,0 +1,43 @@
+package Graph;
+
+import java.util.ArrayList;
+
+public class AdjacencyList {
+
+	//Add edge
+	static void addEdge(ArrayList<ArrayList<Integer>> am,int s,int d) {
+		am.get(s).add(d);
+		am.get(d).add(s);
+	}
+	
+	//Print graph
+	static void printGraph(ArrayList<ArrayList<Integer>> am) {
+		for(int i=0;i<am.size();i++) {
+			System.out.println("\nVertex "+i+":");
+			for(int j=0;j<am.get(i).size();j++) {
+				System.out.print(" -> "+am.get(i).get(j));
+			}
+			System.out.println();
+		}
+	}
+	
+	public static void main(String[] args) {
+
+		//Create graph
+		int v=5;
+		ArrayList<ArrayList<Integer>> am=new ArrayList<ArrayList<Integer>>(v);
+		
+		for(int i=0;i<v;i++) 
+			am.add(new ArrayList<Integer>());
+		
+		//Add edges
+		addEdge(am,0,1);
+		addEdge(am,0,2);
+		addEdge(am,0,3);
+		addEdge(am,1,2);
+		
+		printGraph(am);
+		
+	}
+
+}
